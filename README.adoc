@@ -1,0 +1,81 @@
+= Startup
+
+[source,bash]
+----
+
+./dht-crawler-1.0.0-linux-amd64 -c config.json
+
+----
+
+= Config Example
+
+----
+
+{"timeout": 20, "url" : "https://example.com/crawler"}
+
+----
+
+= Config Description
+
+[cols="3*"]
+|===
+
+|Config Name
+|type
+|Description
+
+|seeds
+|string array
+|Default is ["router.bittorrent.com:6881", "dht.transmissionbt.com:6881", "router.utorrent.com:6881", "dht.libtorrent.org:25401"]
+
+|port
+|integer
+|Peer listening on a TCP/UDP port that implements the BitTorrent protocol. Default is 6881
+
+|timeout
+|integer
+|Dht Metadata read timeout
+
+|url
+|string
+|The torrent file post URL
+
+|maxFriends
+|integer
+|Default is 500
+
+|maxPeers
+|integer
+|Default is 400
+
+|postToLetbt
+|bool
+|Post torrent file to LetBT. This is power to make LetBT open source and data sharing for everyone.
+|===
+
+= Post Data Example
+
+The HTTP `Content-Type` is `application/json`
+
+----
+{
+
+    "infoHash" : "",
+    "name" : "File name",
+    "creator" : "abc",
+    "createTime" : 0,
+    "files" : 1,
+    "size": 1234,
+    "fileList": [
+        {
+            "path": "File name",
+            "size": 1234,
+        }
+    ],
+    "trackers": []
+}
+----
+
+= LetBT official site
+
+https://letbt.net[https://letbt.net]
