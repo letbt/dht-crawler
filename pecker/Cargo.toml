@@ -1,0 +1,12 @@
+[package]
+edition = "2021"
+name = "pecker"
+version = "0.1.0"
+
+[dependencies]
+arc-swap = {version = "1.5"}
+chrono = "0.4"
+lazy_static = {version = "1.4"}
+log = {version = "0.4.17", features = ["std"]}
+parking_lot = {version = "0.12"}
+serde = {version = "1.0", features = ["derive"]}

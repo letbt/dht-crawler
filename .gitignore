@@ -1,0 +1,5 @@
+target/
+logs/
+build/out/
+.vscode/
+Cargo.lock

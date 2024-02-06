@@ -1,0 +1,8 @@
+blacklist = 500
+port = 6881
+bootstrap_nodes = [
+  "bttracker.debian.org:6881",
+  "dht.libtorrent.org:25401",
+]
+url = ""
+limit = 10 

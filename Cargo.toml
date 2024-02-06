@@ -1,0 +1,22 @@
+[package]
+edition = "2021"
+name = "dht-crawler"
+version = "0.1.0"
+
+[dependencies]
+bloomfilter = "1"
+crc32c = {version = "0.6"}
+hex = {version = "0.4"}
+log = {version = "0.4"}
+lru = {version = "0.12"}
+pecker = {path = "pecker"}
+rand = {version = "0.8"}
+serde = {version = "1", features = ["derive"]}
+serde_bytes = {version = "0.11"}
+serde_derive = {version = "1"}
+serde_json = {version = "1"}
+sha1 = {version = "0.10"}
+thiserror = {version = "1"}
+tokio = {version = "1", features = ["full"]}
+toml = {version = "0.8"}
+ureq = {version = "2", features = ["json"]}

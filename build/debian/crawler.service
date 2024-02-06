@@ -1,0 +1,17 @@
+[Unit]
+Description=DHT Crawler
+After=network.target
+Wants=network.target
+
+[Service]
+# This service runs as root. You may consider to run it as another use for security concerns.
+# User=crawler
+# Group=crawler
+Type=simple
+PIDFile=/var/run/crawler.pid
+ExecStart=/usr/local/sbin/dht-crawler -c /etc/crawler/crawler.toml -l /var/log/crawler
+Restart=always
+ExecStop=/usr/local/sbin/dht-crawler -s quit
+
+[Install]
+WantedBy=multi-user.target
