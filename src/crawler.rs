@@ -130,7 +130,7 @@ impl Crawler {
                 if let Ok(data) = r {
                     let r = torrent::from_bytes(&info_hash, &data);
                     if let Ok(torrent) = r {
-                        info!(target: "crawler", "{:?}", serde_json::to_string(&torrent));
+                        info!(target: "crawler", "{:#?}", serde_json::to_string(&torrent));
 
                         if self.config.url.is_empty() {
                             continue;
@@ -138,7 +138,7 @@ impl Crawler {
 
                         let r = agent.post(&self.config.url).send_json(torrent);
                         if r.is_err() {
-                            error!("{:?}", r.err());
+                            error!("post data error: {}, {:?}",hex::encode(&info_hash), r.err());
                         } else {
                             bloom.set(&info_hash);
                         }
@@ -146,7 +146,7 @@ impl Crawler {
                         error!("parse torrent file error. {:?}", r.err());
                     }
                 } else {
-                    error!("feath meta {:?} error. {:?}", info_hash, r.err());
+                    error!("feath meta {:?} error. {:?}", hex::encode(&info_hash), r.err());
                     blacklist.insert(peer).await;
                 }
             }

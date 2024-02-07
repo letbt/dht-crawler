@@ -122,7 +122,7 @@ pub fn from_bytes(info_hash: &Vec<u8>, meta: &[u8]) -> Result<TorrentInfo> {
     }
 
     Ok(TorrentInfo {
-        info_hash: format!("magnet:?xt=urn:btih:{}", hex::encode(info_hash.clone())),
+        info_hash: hex::encode(info_hash.clone()),
         name,
         size: length,
         files: {
